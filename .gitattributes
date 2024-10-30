@@ -1,12 +1,1 @@
-# Automatically normalize line endings for all text files
-* text=auto
 
-# Force specific line endings for certain file types
-*.sh   text eol=lf     # Shell scripts use LF (for Unix compatibility)
-*.bat  text eol=crlf   # Batch files use CRLF (for Windows compatibility)
-*.js   text eol=lf     # JavaScript files use LF
-
-# Treat specific files as binary (no line-ending conversion)
-*.jpg binary
-*.png binary
-*.exe binary
