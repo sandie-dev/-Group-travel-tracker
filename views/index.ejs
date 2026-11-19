@@ -9,21 +9,23 @@
 </head>
 
 <body>
+  <header><p class="eyebrow">FAMILY TRAVEL JOURNAL</p><h1>Your world, one country at a time.</h1><p>Choose a family member and mark the places they have visited.</p></header>
+  <main>
+  <% if (error) { %><p class="notice" role="alert"><%= error %></p><% } %>
+  <% if (!users.length) { %><p class="notice">Your map starts here. Add your first family member below.</p><% } %>
   <form class="tab-view tab-view-height-auto" action="/user" method="post">
     <% users.forEach(function(user) { %>
-      <input type="submit" name="user" value="<%= user.id %>" id="<%= user.id %>">
-      <label for="<%= user.id %>" style="background-color: <%= user.color %>;">
-        <%= user.name %>
-      </label>
+      <button type="submit" name="user" value="<%= user.id %>" aria-pressed="<%= user.id === currentUserId %>" style="border-color: <%= user.color %>;"><%= user.name %></button>
       <% }); %>
 
-        <input type="submit" name="add" value="new" id="tab">
-        <label for="tab">Add Family Member</label>
+        <button type="submit" name="add" value="new">+ Add Family Member</button>
 
   </form>
 
   <form action="/add" method="post">
-    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
+    <label for="country">Country visited</label>
+    <input id="country" type="text" name="country" list="country-list" required placeholder="Enter country name" autocomplete="off">
+    <datalist id="country-list"><% catalog.forEach((country) => { %><option value="<%= country.name %>"><% }); %></datalist>
     <button type="submit" style="background-color: <%= color %>;">Add</button>
   </form>
 
@@ -387,13 +389,14 @@
   </section>
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
+  </main>
   <script>
-    const country_codes = "<%= countries %>".split(",")
-    console.log(typeof ("<%= countries %>"))
-    country_codes.forEach(code => {
-      document.getElementById(code).style.fill = "<%= color %>"
+    const countryCodes = <%- JSON.stringify(countries) %>;
+    const color = <%- JSON.stringify(color) %>;
+    countryCodes.forEach(code => {
+      const path = document.getElementById(code);
+      if (path) path.style.fill = color;
     });
   </script>
 </body>
-
 </html>

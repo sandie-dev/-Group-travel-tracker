@@ -6,48 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New User</title>
   <link rel="stylesheet" href="./styles/main.css">
-  <link rel="stylesheet" href="./styles/new.css">
+
 </head>
 
-<body>
+<body class="new-member">
+  <main>
+  <a href="/">← Back to the map</a>
+  <% if (error) { %><p class="notice" role="alert"><%= error %></p><% } %>
   <h1>Add a Family Member</h1>
   <form action="/new" method="post">
-    <p>What's your name?</p>
-    <input type="text" name="name">
+    <p><label for="name">What's your name?</label></p>
+    <input type="text" id="name" name="name" required maxlength="60" autocomplete="given-name">
 
     <p>Pick a color:</p>
-    <input type="radio" name="color" id="red" value="red" />
-    <label for="red"><span class="red"></span></label>
+    <input type="radio" name="color" required id="red" value="red" />
+    <label for="red">red</label>
 
     <input type="radio" name="color" id="green" value="green" />
-    <label for="green"><span class="green"></span></label>
+    <label for="green">green</label>
 
     <input type="radio" name="color" id="yellow" value="yellow" />
-    <label for="yellow"><span class="yellow"></span></label>
+    <label for="yellow">yellow</label>
 
     <input type="radio" name="color" id="olive" value="olive" />
-    <label for="olive"><span class="olive"></span></label>
+    <label for="olive">olive</label>
 
     <input type="radio" name="color" id="orange" value="orange" />
-    <label for="orange"><span class="orange"></span></label>
+    <label for="orange">orange</label>
 
     <input type="radio" name="color" id="teal" value="indigo" />
-    <label for="teal"><span class="teal"></span></label>
+    <label for="teal">teal</label>
 
     <input type="radio" name="color" id="blue" value="blue" />
-    <label for="blue"><span class="blue"></span></label>
+    <label for="blue">blue</label>
 
     <input type="radio" name="color" id="violet" value="violet" />
-    <label for="violet"><span class="violet"></span></label>
+    <label for="violet">violet</label>
 
     <input type="radio" name="color" id="purple" value="purple" />
-    <label for="purple"><span class="purple"></span></label>
+    <label for="purple">purple</label>
 
     <input type="radio" name="color" id="pink" value="pink" />
-    <label for="pink"><span class="pink"></span></label>
+    <label for="pink">pink</label>
     <div class="spacer"></div>
     <button type="submit">Add</button>
   </form>
+</main>
 </body>
 
 </html>
