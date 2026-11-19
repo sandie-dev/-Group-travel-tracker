@@ -448,3 +448,30 @@ button {
     display: none;
   }
 }
+
+/* Keep the existing map and colors with a usable responsive page layout. */
+body { height: auto; min-height: 100vh; margin: 0; padding: clamp(20px, 4vw, 64px); color: #eeeae1; font-family: 'Trebuchet MS', sans-serif; }
+header, main { max-width: 1200px; margin: 0 auto; }
+h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3.8rem); max-width: 850px; margin: 12px 0; }
+header p { color: #bfc8c8; }
+.eyebrow { font-size: .75rem; letter-spacing: .2em; }
+form { margin: 24px 0; }
+.tab-view { display: flex; flex-wrap: wrap; gap: 10px; }
+button, input[type=text] { font: inherit; border-radius: 6px; padding: 12px 16px; border: 1px solid #73817f; }
+button { background: #d9e8df; color: #172b28; cursor: pointer; }
+button:hover { filter: brightness(1.12); }
+button:active { transform: translateY(1px); }
+button[aria-pressed] { color: #eeeae1; background: transparent; border-bottom-width: 4px; }
+button[aria-pressed=true] { background: #384542; }
+input[type=text] { max-width: 100%; background: #30383e; color: #fff; }
+label[for=country] { display: block; margin-bottom: 10px; }
+:focus-visible { outline: 3px solid #edc882; outline-offset: 4px; }
+.ag-canvas { z-index: auto; height: auto; padding: 0; margin: 20px 0; }
+.ag-canvas_svg { margin: 0; }
+.notice { border-left: 3px solid #edc882; background: #343b40; padding: 16px; }
+a { color: #c5e2d5; }
+.new-member main { max-width: 700px; }
+.new-member form > label { display: inline-block; padding: 10px; }
+.total-count { font-weight: 400; border-top: 1px solid #535e63; padding-top: 20px; }
+@media (max-width: 500px) { input[name=country] { width: 100%; margin-bottom: 10px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
